@@ -18,3 +18,26 @@
 //8 getter-method for member
 
 //9 virtual-method "solve_problem"
+
+#ifndef DEVELOPER_HPP
+#define DEVELOPER_HPP
+
+#include <string>
+
+class Developer {
+public:
+    Developer(const std::string& name, const std::string& alias);
+    virtual ~Developer();
+
+    virtual void solve_problem() = 0;
+    std::string get_name() const;
+    std::string get_alias() const;
+
+    static void drink_coffee();
+
+protected:
+    std::string name_;
+    std::string alias_;
+};
+
+#endif // DEVELOPER_HPP

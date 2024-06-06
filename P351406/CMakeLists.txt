@@ -8,13 +8,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Add subdirectories for source code and tests
 add_subdirectory(src)
+add_subdirectory(logos)
 add_subdirectory(tests)
 
 # Specify include directories
 include_directories(include)
 
 # Add compiler flags
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
+#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
+add_compile_options(-Wall -Wextra -pedntic -O0)
 
 # Add executable target
 add_executable(main main.cpp)
