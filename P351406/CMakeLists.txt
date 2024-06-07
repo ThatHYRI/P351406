@@ -6,23 +6,21 @@ project(P351406 VERSION 1.0 LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Add subdirectories for source code and tests
-add_subdirectory(src)
-add_subdirectory(logos)
-add_subdirectory(tests)
+# Add compiler flags
+add_compile_options(-Wall -Wextra -pedantic -O0)
 
 # Specify include directories
 include_directories(include)
 
-# Add compiler flags
-#set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
-add_compile_options(-Wall -Wextra -pedntic -O0)
+# Add subdirectories for source code and tests
+add_subdirectory(src)
+add_subdirectory(test)
 
 # Add executable target
-add_executable(main main.cpp)
+add_executable(main src/main.cpp)
 
 # Link main executable with libraries
-target_link_libraries(main PUBLIC developer)
+target_link_libraries(main PUBLIC my_library)
 
 
 
