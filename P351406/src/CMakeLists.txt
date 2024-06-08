@@ -1,6 +1,6 @@
 # src/CMakeLists.txt
 add_library(my_library
-    main.cpp
+    developer.cpp
     junior_developer.cpp
     senior_developer.cpp
 )
