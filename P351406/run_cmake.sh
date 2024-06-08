@@ -3,16 +3,10 @@
 # Set the build directory
 BUILD_DIR="build"
 
-# Create the build directory if it doesn't exist
-if [ ! -d "$BUILD_DIR" ]; then
-    mkdir "$BUILD_DIR"
-fi
+# Create build directory if it doesn't exist
+mkdir -p $BUILD_DIR
+cd $BUILD_DIR
 
-# Change to the build directory
-cd "$BUILD_DIR"
-
-#make && build -b
-
-# Run CMake and make
+# Run cmake and make
 cmake ..
 make
