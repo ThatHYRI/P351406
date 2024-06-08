@@ -22,5 +22,9 @@ add_executable(main src/main.cpp)
 # Link main executable with libraries
 target_link_libraries(main PUBLIC my_library)
 
+# Enable testing
+enable_testing()
+add_test(NAME runTests COMMAND runTests)
+
 
 
