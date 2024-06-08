@@ -10,11 +10,8 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-# Add test executable
-add_executable(runTests test_main.cpp)
-
 # Link test executable against gtest & gtest_main
-target_link_libraries(runTests gtest_main my_library)
+#target_link_libraries(runTests gtest_main my_library)
 
 # Enable testing
 enable_testing()

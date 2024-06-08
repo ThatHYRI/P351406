@@ -12,6 +12,9 @@ add_compile_options(-Wall -Wextra -pedantic -O0)
 # Specify include directories
 include_directories(include)
 
+# Define the path to the logos
+add_definitions(-DLOGO_PATH=\"${CMAKE_SOURCE_DIR}/logos/\")
+
 # Add subdirectories for source code and tests
 add_subdirectory(src)
 add_subdirectory(test)
@@ -23,7 +26,13 @@ add_executable(main src/main.cpp)
 target_link_libraries(main PUBLIC my_library)
 
 # Enable testing
+#enable_testing()
+#add_test(NAME runTests COMMAND runTests)
+#-----------------------------------------------------------------------------------------
 enable_testing()
+add_executable(runTests test/developer_test.cpp)
+target_link_libraries(runTests gtest gtest_main my_library)
+
 add_test(NAME runTests COMMAND runTests)
 
 
