@@ -13,6 +13,7 @@ public:
     std::string get_alias() const;
     static void drink_coffee();
     void load_logo_from_file(const std::string& filename);
+    std::string get_logo() const; 
 
     // Pure virtual function to be implemented by derived classes
     virtual void solve_problem() = 0;
