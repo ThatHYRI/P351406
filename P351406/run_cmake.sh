@@ -1,12 +1,24 @@
 #!/bin/bash
 
-# Set the build directory
-BUILD_DIR="build"
+# Erstellen Sie das Build-Verzeichnis, falls es nicht existiert
+mkdir -p build
 
-# Create build directory if it doesn't exist
-mkdir -p $BUILD_DIR
-cd $BUILD_DIR
+# Gehen Sie in das Build-Verzeichnis
+cd build
 
-# Run cmake and make
+# Führen Sie cmake und make aus
 cmake ..
 make
+
+# Überprüfen Sie, ob der Build erfolgreich war
+if [ $? -eq 0 ]; then
+    # Führen Sie das Hauptprogramm aus
+    echo "Running main program..."
+    ./main
+
+    # Führen Sie die Tests aus
+    echo "Running tests..."
+    ./runTests
+else
+    echo "Build failed. Fix the errors and try again."
+fi
