@@ -16,7 +16,9 @@ include_directories(include)
 #add_definitions(-DLOGO_PATH=\"${CMAKE_SOURCE_DIR}/logos/\")
 
 # Define the path to the logo files
-add_definitions(-DDEVELOPER_LOGO_PATH=\"${CMAKE_SOURCE_DIR}/path/to/logo/files/\")
+#add_definitions(-DDEVELOPER_LOGO_PATH=\"${CMAKE_SOURCE_DIR}/path/to/logo/files/\")
+add_definitions(-DDEVELOPER_LOGO_PATH=\"/path/to/logos/\")
+
 
 
 # Add subdirectories for source code and tests
