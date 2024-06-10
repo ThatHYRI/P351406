@@ -6,12 +6,25 @@
 #include "senior_developer.hpp" // Include SeniorDeveloper class definition
 
 int main() {
-    // 1. Create a vector of shared pointers
+    // 1. Create a vector of shared pointers to Developer
     std::vector<std::shared_ptr<Developer>> developers;
 
-    // 2. Instantiate at least one object of SeniorDeveloper and one object of JuniorDeveloper
+    // 2. Instantiate at least one object of the SeniorDeveloper and JuniorDeveloper classes
     auto seniorDev = std::make_shared<SeniorDeveloper>("Diana Prince", "Wonder Woman");
     auto juniorDev = std::make_shared<JuniorDeveloper>("Peter Parker", "Spiderman");
+
+    // Load logos from files
+    try {
+        seniorDev->load_logo_from_file("../logos/senior_logo.txt");
+    } catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
+    }
+
+    try {
+        juniorDev->load_logo_from_file("../logos/junior_logo.txt");
+    } catch (const std::runtime_error& e) {
+        std::cerr << e.what() << std::endl;
+    }
 
     // 3. Add all objects to the vector
     developers.push_back(seniorDev);
@@ -21,9 +34,9 @@ int main() {
     for (auto& dev : developers) {
         std::cout << "Solving a problem:" << std::endl;
         dev->solve_problem();
+        std::cout << *dev << std::endl;  // Use the overloaded stream operator to print developer details
         std::cout << std::endl;
     }
 
     return 0;
 }
-

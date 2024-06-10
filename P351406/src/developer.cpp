@@ -3,10 +3,6 @@
 #include <fstream>
 #include <stdexcept>
 
-#ifndef LOGO_PATH
-#define LOGO_PATH ""
-#endif
-
 // Constructor
 Developer::Developer(const std::string& name, const std::string& alias)
     : name_(name), alias_(alias) {}
@@ -30,23 +26,19 @@ void Developer::drink_coffee() {
 }
 
 // Load a logo from a file
-/*void Developer::load_logo_from_file(const std::string& filename) {
+void Developer::load_logo_from_file(const std::string& filename) {
     std::ifstream file(filename);
     if (!file.is_open()) {
         throw std::runtime_error("Invalid file name");
     }
-    std::getline(file, logo_);
+    std::getline(file, logo_, '\0');  // Read the entire file content
     file.close();
-}*/
+}
 
-
-// Load a logo from a file
-void Developer::load_logo_from_file(const std::string& filename) {
-    std::string full_path = LOGO_PATH + filename;
-    std::ifstream file(full_path);
-    if (!file.is_open()) {
-        throw std::runtime_error("Invalid file name");
-    }
-    std::getline(file, logo_);
-    file.close();
+// Overload the stream insertion operator
+std::ostream& operator<<(std::ostream& os, const Developer& dev) {
+    //os << "Name: " << dev.get_name() << std::endl;
+    //os << "Alias: " << dev.get_alias() << std::endl;
+    os << "Logo: " << dev.logo_ << std::endl;
+    return os;
 }

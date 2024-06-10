@@ -8,11 +8,11 @@ SeniorDeveloper::SeniorDeveloper(const std::string& name, const std::string& ali
 // Destructor
 SeniorDeveloper::~SeniorDeveloper() {}
 
-// Implement solve_problem method
+// Implementation of the solve_problem method
 void SeniorDeveloper::solve_problem() {
+    // Specific problem-solving logic for Senior Developer
     std::cout << "Name: " << get_name() << std::endl;
     std::cout << "Alias: " << get_alias() << std::endl;
     std::cout << "Solving problem as a Senior Developer..." << std::endl;
-    Developer::drink_coffee(); // Call method from base class
+    Developer::drink_coffee(); // Call the method from the base class
 }
-
