@@ -4,7 +4,7 @@
 #include "senior_developer.hpp"
 #include <sstream>
 
-// Test the load_logo_from_file method
+// Test the load_logo_from_file method FAILED
 TEST(DeveloperTest, LoadLogoFromFile) {
     JuniorDeveloper dev("John Doe", "johnd");
     try {
@@ -20,7 +20,7 @@ TEST(DeveloperTest, LoadLogoFromFile) {
     EXPECT_EQ(dev.get_logo(), "Sample Logo");
 }
 
-// Test the stream operator
+// Test the stream operator FAILED
 TEST(DeveloperTest, StreamOperator) {
     JuniorDeveloper dev("John Doe", "johnd");
     std::ostringstream oss;

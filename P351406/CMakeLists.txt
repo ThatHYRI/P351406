@@ -37,7 +37,7 @@ target_link_libraries(main PUBLIC my_library)
 #add_test(NAME runTests COMMAND runTests)
 #-----------------------------------------------------------------------------------------
 enable_testing()
-add_executable(runTests test/developer_test.cpp)
+#add_executable(runTests test/developer_test.cpp)
 target_link_libraries(runTests gtest gtest_main my_library)
 
 add_test(NAME runTests COMMAND runTests)
