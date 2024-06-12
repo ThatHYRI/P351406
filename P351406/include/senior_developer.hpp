@@ -6,8 +6,7 @@
 class SeniorDeveloper : public Developer {
 public:
     SeniorDeveloper(const std::string& name, const std::string& alias);
-    ~SeniorDeveloper();
-    void solve_problem() override; // Override the pure virtual function from Developer
+    void solve_problem() override;
 };
 
-#endif
+#endif // SENIOR_DEVELOPER_HPP

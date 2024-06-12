@@ -10,8 +10,8 @@ int main() {
     std::vector<std::shared_ptr<Developer>> developers;
 
     // 2. Instantiate at least one object of the SeniorDeveloper and JuniorDeveloper classes
-    auto seniorDev = std::make_shared<SeniorDeveloper>("Diana Prince", "Wonder Woman");
-    auto juniorDev = std::make_shared<JuniorDeveloper>("Peter Parker", "Spiderman");
+    auto seniorDev = std::make_shared<SeniorDeveloper>("Matthies Otten", "The Otter");
+    auto juniorDev = std::make_shared<JuniorDeveloper>("Hai Nam Nguyen", "The DOOM Slayer");
 
     // Load logos from files
     try {
