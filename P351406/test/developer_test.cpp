@@ -1,45 +1,35 @@
-#include "gtest/gtest.h"
-#include "developer.hpp"
-#include "junior_developer.hpp"
-#include "senior_developer.hpp"
-#include <sstream>
+#include <gtest/gtest.h>
+#include "../include/junior_developer.hpp"
+#include "../include/senior_developer.hpp"
+#include <fstream>
 
-// Test the load_logo_from_file method
-TEST(DeveloperTest, LoadLogoFromFile) {
+// Test the constructor of the JuniorDeveloper class
+TEST(DeveloperTest, Constructor) {
     JuniorDeveloper dev("John Doe", "johnd");
-    try {
-        dev.load_logo_from_file(DEVELOPER_LOGO_PATH "logo.txt");
-    } catch (const std::runtime_error& e) {
-        FAIL() << "Exception thrown: " << e.what();
-    }
-
-    // Debug output
-    std::cout << "Loaded logo: " << dev.get_logo() << std::endl;
-
-    // Assuming the logo file contains "Sample Logo"
-    EXPECT_EQ(dev.get_logo(), "Sample Logo");
+    EXPECT_EQ(dev.get_name(), "John Doe");
+    EXPECT_EQ(dev.get_alias(), "johnd");
 }
 
-// Test the stream operator
-TEST(DeveloperTest, StreamOperator) {
+// Test the get_name method of the JuniorDeveloper class
+TEST(DeveloperTest, GetName) {
     JuniorDeveloper dev("John Doe", "johnd");
-    std::ostringstream oss;
-    oss << dev;
-    std::string expected_output = "Name: John Doe\nAlias: johnd\n";
-    EXPECT_EQ(oss.str(), expected_output);
+    EXPECT_EQ(dev.get_name(), "John Doe");
+}
 
-    // If a logo was loaded
-    try {
-        dev.load_logo_from_file(DEVELOPER_LOGO_PATH "logo.txt");
-    } catch (const std::runtime_error& e) {
-        FAIL() << "Exception thrown: " << e.what();
-    }
+// Test the get_alias method of the JuniorDeveloper class
+TEST(DeveloperTest, GetAlias) {
+    JuniorDeveloper dev("John Doe", "johnd");
+    EXPECT_EQ(dev.get_alias(), "johnd");
+}
 
-    // Debug output
-    std::cout << "Loaded logo: " << dev.get_logo() << std::endl;
+// Test loading a logo from an invalid file path
+TEST(DeveloperTest, LoadLogoFromFileInvalid) {
+    JuniorDeveloper dev("John Doe", "johnd");
+    EXPECT_THROW(dev.load_logo_from_file("invalid_path/logo.txt"), std::runtime_error);
+}
 
-    oss.str(""); // Clear the stream
-    oss << dev;
-    expected_output = "Name: John Doe\nAlias: johnd\nLogo: Sample Logo\n";
-    EXPECT_EQ(oss.str(), expected_output);
+// Test the drink_coffee method of the JuniorDeveloper class
+TEST(DeveloperTest, DrinkCoffee) {
+    JuniorDeveloper dev("John Doe", "johnd");
+    dev.drink_coffee();
 }

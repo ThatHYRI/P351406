@@ -6,25 +6,33 @@
 
 class Developer {
 public:
+    // Constructor for Developer class
     Developer(const std::string& name, const std::string& alias);
-    virtual ~Developer();
+    // Virtual destructor for Developer class
+    virtual ~Developer() = default;
 
+    // Getter method for name, alias, logo
     std::string get_name() const;
     std::string get_alias() const;
-    static void drink_coffee();
-    void load_logo_from_file(const std::string& filename);
-    std::string get_logo() const; 
+    std::string get_logo() const;
 
-    // Pure virtual function to be implemented by derived classes
+    // Getter method for name
+    void load_logo_from_file(const std::string& path);
+
+    // Pure virtual method to solve a problem
     virtual void solve_problem() = 0;
 
-    // Overload the stream insertion operator
-    friend std::ostream& operator<<(std::ostream& os, const Developer& dev);
+    // Method to simulate drinking coffee
+    void drink_coffee() const;
 
 protected:
+    // Member variable to store the name, alias & logo of the developer
     std::string name_;
     std::string alias_;
     std::string logo_;
 };
+
+// Overloaded insertion operator for Developer class
+std::ostream& operator<<(std::ostream& os, const Developer& dev);
 
 #endif // DEVELOPER_HPP

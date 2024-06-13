@@ -18,7 +18,7 @@ if [ $? -eq 0 ]; then
 
     # Führen Sie die Tests aus
     echo "Running tests..."
-    ./runTests
+    ./test/runTests
 else
     echo "Build failed. Fix the errors and try again."
 fi
