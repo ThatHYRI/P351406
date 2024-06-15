@@ -3,6 +3,15 @@
 #include "../include/senior_developer.hpp"
 #include <fstream>
 
+// Helper function to capture standard output
+std::string capture_stdout(std::function<void()> func) {
+    std::ostringstream oss;
+    auto old_buf = std::cout.rdbuf(oss.rdbuf());
+    func();
+    std::cout.rdbuf(old_buf);
+    return oss.str();
+}
+
 // Test the constructor of the JuniorDeveloper class
 TEST(DeveloperTest, Constructor) {
     JuniorDeveloper dev("John Doe", "johnd");
@@ -25,7 +34,8 @@ TEST(DeveloperTest, GetAlias) {
 // Test the drink_coffee method of the JuniorDeveloper class
 TEST(DeveloperTest, DrinkCoffee) {
     JuniorDeveloper dev("John Doe", "johnd");
-    dev.drink_coffee();
+    std::string output = capture_stdout([&] { dev.drink_coffee(); });
+    EXPECT_EQ(output, "Ahhhh, I needed that coffee!!!\n");
 }
 
 // Test loading a logo from an invalid file path
