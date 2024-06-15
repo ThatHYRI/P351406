@@ -22,14 +22,14 @@ TEST(DeveloperTest, GetAlias) {
     EXPECT_EQ(dev.get_alias(), "johnd");
 }
 
-// Test loading a logo from an invalid file path
-TEST(DeveloperTest, LoadLogoFromFileInvalid) {
-    JuniorDeveloper dev("John Doe", "johnd");
-    EXPECT_THROW(dev.load_logo_from_file("invalid_path/logo.txt"), std::runtime_error);
-}
-
 // Test the drink_coffee method of the JuniorDeveloper class
 TEST(DeveloperTest, DrinkCoffee) {
     JuniorDeveloper dev("John Doe", "johnd");
     dev.drink_coffee();
+}
+
+// Test loading a logo from an invalid file path
+TEST(DeveloperTest, LoadLogoFromFileInvalid) {
+    JuniorDeveloper dev("John Doe", "johnd");
+    EXPECT_THROW(dev.load_logo_from_file("invalid_path/logo.txt"), std::runtime_error);
 }
